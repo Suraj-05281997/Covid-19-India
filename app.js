@@ -171,8 +171,9 @@ app.get("/states/:stateId/stats/", async (request, response) => {
         SUM(active),
         SUM(deaths)
     FROM
-       WHERE
-          state_id = ${stateId}`;
+        district
+    WHERE
+        state_id = ${stateId}`;
 
   const stateDetails = await db.get(stateQuery);
   response.send({
